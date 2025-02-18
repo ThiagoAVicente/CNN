@@ -1,7 +1,5 @@
-## TEST SCRIPT WAS COPIED FROM CHAT GPT
-# TODO do your own
-
 import numpy as np
+import signal
 
 from model.cnn import cnn
 from functions.load_cifar import *
@@ -27,9 +25,16 @@ num_classes = labels.shape[1]
 # Initialize the model
 #model = cnn(input_size, num_of_filters, filter_size, num_classes, learning_rate=0.01)
 
-model = load();
+model = load()
+
+def save_model_on_signal(signal_received, frame):
+    save(model)
+    print("Model saved.")
+    exit(0)
+
+signal.signal(signal.SIGINT, save_model_on_signal)
 
 # Train the model
-model.train(images, labels, limit=1000, batch_size=32)
+model.train(images, labels, limit=5000, batch_size=32)
 
 save(model)
