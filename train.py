@@ -26,12 +26,12 @@ num_classes = labels.shape[1]
 #model = cnn(input_size, num_of_filters, filter_size, num_classes, learning_rate=0.01)
 
 model = load()
+#model = cnn(32,num_of_filters=8,filter_size=3,num_classes=len(selected_classes))
 
-def save_model_on_signal(signal_received, frame):
+def save_model_on_signal(signal_received, frame) :
     save(model)
     print("Model saved.")
     exit(0)
-
 signal.signal(signal.SIGINT, save_model_on_signal)
 
 # Train the model
