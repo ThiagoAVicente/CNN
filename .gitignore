@@ -1,0 +1,18 @@
+# Dataset
+cifar-10-batches-py/
+data/
+
+# Trained models
+*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Misc
+.DS_Store
+*.egg-info/
+dist/
+build/
